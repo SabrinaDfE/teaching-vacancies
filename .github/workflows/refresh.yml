@@ -8,7 +8,7 @@ on:
         required: true
         default: staging
 
-concurrency: workflow-Build-and-deploy-${{ github.ref }}
+concurrency: workflow-Build-and-deploy-dev
 
 jobs:
   refresh-env-vars:
@@ -20,7 +20,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Configure AWS credentials
+      - name: Configure AWS credentialss
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
