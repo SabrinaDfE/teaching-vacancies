@@ -1,16 +1,16 @@
 class VacanciesController < ApplicationController
   helper_method :allow_sorting?, :job_application
 
-  before_action :set_landing_page_description, :set_map_display, :set_params_from_pretty_landing_page_params, only: %i[index]
-  after_action :trigger_search_performed_event, only: %i[index]
+  before_action :set_map_display, only: %i[index]
+  before_action :set_vacancies_search_and_vacancies, only: %i[index landing_page]
+  after_action :trigger_search_performed_event, only: %i[index landing_page]
 
-  def index
-    @vacancies_search = Search::VacancySearch.new(
-      search_form.to_hash,
-      sort: search_form.sort,
-      page: params[:page],
-    )
-    @vacancies = VacanciesPresenter.new(@vacancies_search.vacancies)
+  def index; end
+
+  def landing_page
+    @landing_page = params[:landing_page]
+
+    render "index"
   end
 
   def show
@@ -32,11 +32,13 @@ class VacanciesController < ApplicationController
 
   private
 
-  def set_params_from_pretty_landing_page_params
-    params[:location] = params[:location_facet].titleize if params[:location_facet]
-    params[:job_roles] = params[:job_role].parameterize.underscore if params[:job_role]
-    params[:phases] = params[:education_phase].parameterize if params[:education_phase]
-    params[:subject] = params[:subject].tr("-", " ").gsub(" and ", " ") if params[:subject]
+  def set_vacancies_search_and_vacancies
+    @vacancies_search = Search::VacancySearch.new(
+      search_form.to_hash,
+      sort: search_form.sort,
+      page: params[:page],
+    )
+    @vacancies = VacanciesPresenter.new(@vacancies_search.vacancies)
   end
 
   def search_params
@@ -74,13 +76,6 @@ class VacanciesController < ApplicationController
 
   def set_headers
     response.set_header("X-Robots-Tag", "noarchive")
-  end
-
-  def set_landing_page_description
-    return unless params.key?(:pretty) && params.key?(params[:pretty])
-
-    @landing_page = params[params[:pretty]]
-    @landing_page_translation = "#{params[:pretty]}.#{@landing_page.parameterize.underscore}"
   end
 
   def set_map_display

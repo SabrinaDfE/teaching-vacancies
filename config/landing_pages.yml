@@ -1,0 +1,22 @@
+shared:
+  send-responsible-jobs:
+    job_roles:
+      - send_responsible
+  ect-suitable-jobs:
+    job_roles:
+      - ect_suitable
+  education-support-jobs:
+    job_roles:
+      - education_support
+  leadership-jobs:
+    job_roles:
+      - leadership
+  sendco-jobs:
+    job_roles:
+      - sendco
+  teacher-jobs:
+    job_roles:
+      - teacher
+  teaching-assistant-jobs:
+    job_roles:
+      - teaching_assistant

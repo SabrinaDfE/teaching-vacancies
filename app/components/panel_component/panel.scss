@@ -1,12 +1,12 @@
 @import 'base_component';
 
-.vacancies_index {
+.vacancies_index, .vacancies_landing_page {
   .search-controls {
     .search-controls__panel {
       border-bottom: 1px solid $govuk-border-colour;
       margin-bottom: 0;
       margin-top: 0;
-  
+
       @include govuk-media-query($until: desktop) {
         border-bottom: 0;
       }
@@ -27,7 +27,7 @@
         margin-bottom: 0;
         margin-top: 0;
         padding: $govuk-gutter-half;
-    
+
         @include govuk-media-query($until: desktop) {
           margin-bottom: $govuk-gutter;
         }
@@ -35,7 +35,7 @@
     }
   }
 }
-  
+
 .js-enabled {
   .panel-component {
     &__toggle {

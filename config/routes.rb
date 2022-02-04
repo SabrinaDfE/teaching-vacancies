@@ -228,25 +228,14 @@ Rails.application.routes.draw do
       to: redirect { |params| "/teaching-jobs-#{params[:not_normalized].parameterize.dasherize}" },
       constraints: ->(request) { request.params[:not_normalized] != request.params[:not_normalized].parameterize.dasherize }
 
-  with_options(to: "vacancies#index") do
-    # If parameters are used that are the same as those in the search form, pagination with kaminari will break
-    get "teaching-jobs-in-:location_facet",
-        as: :location,
-        constraints: ->(request) { LocationPolygon.include?(request.params[:location_facet].titleize) }
+  # If parameters are used that are the same as those in the search form, pagination with kaminari will break
+  get "teaching-jobs-in-:location_facet",
+      as: :location,
+      to: "vacancies#index",
+      constraints: ->(request) { LocationPolygon.include?(request.params[:location_facet].titleize) }
 
-    get "teaching-jobs-for-:education_phase",
-        as: :education_phase,
-        constraints: ->(request) { School.available_readable_phases.map(&:parameterize).include?(request.params[:education_phase].parameterize) },
-        defaults: { pretty: :education_phase }
-
-    get ":job_role-jobs",
-        as: :job_role,
-        constraints: ->(request) { Vacancy.job_roles.keys.map(&:dasherize).include?(request.params[:job_role].dasherize) },
-        defaults: { pretty: :job_role }
-
-    get "teaching-jobs-for-:subject",
-        as: :subject,
-        constraints: ->(request) { SUBJECT_OPTIONS.map(&:first).map(&:parameterize).include?(request.params[:subject].parameterize) },
-        defaults: { pretty: :subject }
-  end
+  # SEO-friendly landing pages
+  get ":landing_page",
+      to: "vacancies#landing_page",
+      constraints: ->(segments, _) { Rails.application.config.landing_pages.key?(segments[:landing_page].to_sym) }
 end
