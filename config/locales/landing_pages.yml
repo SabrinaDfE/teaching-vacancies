@@ -1,30 +1,45 @@
 en:
-  landing:
+  landing_page_groups:
+    cities: "Cities and towns with teaching and education support jobs"
+    counties: "Counties with teaching and education support jobs"
+    subjects: "Current jobs by subject"
+    job_roles: "Current jobs by role"
+    ect_suitable: "Current jobs suitable for early career teachers"
+    send_responsible: "Current jobs with SEND responsibilities"
+    education_phases: "Current jobs by education phase"
+  landing_pages:
     send-responsible-jobs:
+      name: "SEND responsibilities"
       title: "School Jobs with SEND Responsibilities"
       heading: "%{count} school jobs with SEND responsibilities"
       meta_description: "Find jobs in schools for SEND teachers and LSAs with responsibilities for looking after children with special educational needs and disabilities."
     ect-suitable-jobs:
+      name: "Suitable for early career teachers"
       title: "Early Career Teacher (ECT) & NQT Jobs"
       heading: "%{count} early career teacher (ECT) jobs"
       meta_description: "Find early career teacher (ECT, formerly known as NQT) jobs in local primary and secondary schools. Get your teaching career off to a great start."
     education-support-jobs:
+      name: "Education support"
       title: "Education & School Support Jobs"
       heading: "%{count} education and school support jobs"
       meta_description: "Find jobs for LSAs, HR managers, finance officers, admin assistants, cover supervisors and other non-teaching vacancies in schools near you."
     leadership-jobs:
+      name: "Leadership"
       title: "Headteacher & School Leadership Jobs"
       heading: "%{count} headteacher and school leadership jobs"
       meta_description: "Discover headteacher jobs, assistant and deputy head vacancies, and senior school leadership roles in primary and secondary schools near you."
     sendco-jobs:
+      name: ""
       title: "SEND Coordinator (SENDCo) Jobs"
       heading: "%{count} SENDCo jobs"
       meta_description: "Find the latest special educational needs co-ordinator (SENDCo) jobs in schools near you. Apply for full time and part time vacancies."
     teacher-jobs:
+      name: ""
       title: "Teacher Jobs"
       heading: "%{count} teacher jobs"
       meta_description: "Discover the latest full and part-time jobs for teachers. See which schools near you are hiring and apply directly on Teaching Vacancies from GOV.UK."
     teaching-assistant-jobs:
+      name: ""
       title: "Teaching Assistant Jobs"
       heading: "%{count} teaching assistant jobs"
       meta_description: "Find full and part time teaching assistant jobs and classroom assistant vacancies. See which schools near you are currently hiring TAs and LSAs."

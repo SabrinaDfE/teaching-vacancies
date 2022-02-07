@@ -8,7 +8,7 @@ class VacanciesController < ApplicationController
   def index; end
 
   def landing_page
-    @landing_page = params[:landing_page]
+    @slug = params[:slug]
 
     render "index"
   end
@@ -42,6 +42,9 @@ class VacanciesController < ApplicationController
   end
 
   def search_params
+    if params[:landing_page]
+
+    end
     strip_empty_checkboxes(%i[job_roles phases working_patterns])
     %w[job_role job_roles phases working_patterns].each do |facet|
       params[facet] = params[facet].split if params[facet].is_a?(String)

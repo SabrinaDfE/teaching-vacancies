@@ -1,22 +1,36 @@
 shared:
   send-responsible-jobs:
-    job_roles:
-      - send_responsible
+    type: job_roles
+    criteria:
+      job_roles:
+        - send_responsible
   ect-suitable-jobs:
-    job_roles:
-      - ect_suitable
+    type: job_roles
+    criteria:
+      job_roles:
+        - ect_suitable
   education-support-jobs:
-    job_roles:
-      - education_support
+    type: job_roles
+    criteria:
+      job_roles:
+        - education_support
   leadership-jobs:
-    job_roles:
-      - leadership
+    type: job_roles
+    criteria:
+      job_roles:
+        - leadership
   sendco-jobs:
-    job_roles:
-      - sendco
+    type: job_roles
+    criteria:
+      job_roles:
+        - sendco
   teacher-jobs:
-    job_roles:
-      - teacher
+    type: job_roles
+    criteria:
+      job_roles:
+        - teacher
   teaching-assistant-jobs:
-    job_roles:
-      - teaching_assistant
+    type: job_roles
+    criteria:
+      job_roles:
+        - teaching_assistant

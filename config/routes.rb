@@ -237,5 +237,5 @@ Rails.application.routes.draw do
   # SEO-friendly landing pages
   get ":landing_page",
       to: "vacancies#landing_page",
-      constraints: ->(segments, _) { Rails.application.config.landing_pages.key?(segments[:landing_page].to_sym) }
+      constraints: ->(segments, _) { Rails.application.config.landing_pages.key?(segments[:landing_page]) }
 end

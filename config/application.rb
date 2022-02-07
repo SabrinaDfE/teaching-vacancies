@@ -98,7 +98,8 @@ module TeacherVacancyService
 
     config.geocoder_lookup = :default
 
-    config.landing_pages = config_for(:landing_pages)
+    config.landing_pages_by_category = config_for(:landing_pages)
+    config.landing_pages = config.landing_pages_by_category.values
 
     config.maintenance_mode = ActiveModel::Type::Boolean.new.cast(ENV["MAINTENANCE_MODE"])
 
