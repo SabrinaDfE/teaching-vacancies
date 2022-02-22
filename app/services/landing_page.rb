@@ -22,6 +22,23 @@ class LandingPage
     self[slug]
   end
 
+  # Find any landing pages where at least one of the criteria contains a value that is also in
+  # the criteria given.
+  def self.matching_any(criteria)
+    slug = Rails.application.config.landing_pages.find { |_, landing_page|
+      criteria.any? do |k, v|
+        if v.is_a?(Array)
+          landing_page[k] && (landing_page[k] & v).any?
+        else
+          landing_page[k] == v
+        end
+      end
+    }&.first
+    return unless slug
+
+    self[slug]
+  end
+
   def initialize(slug, criteria)
     @slug = slug.to_s
     @criteria = criteria
