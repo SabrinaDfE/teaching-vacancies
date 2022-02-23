@@ -61,6 +61,16 @@ input.button-as-link {
   position: absolute;
   top: auto;
   width: 1px;
+
+  &--visible-print {
+    display: none;
+    height: initial;
+    left: initial;
+    overflow: initial;
+    position: initial;
+    top: initial;
+    width: initial;
+  }
 }
 
 .hide-bullet-points {

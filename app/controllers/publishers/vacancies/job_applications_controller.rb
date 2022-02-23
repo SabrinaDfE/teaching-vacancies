@@ -1,4 +1,4 @@
-class Publishers::Vacancies::JobApplicationsController < Publishers::Vacancies::BaseController
+class Publishers::Vacancies::JobApplicationsController < Publishers::Vacancies::JobApplications::BaseController
   include QualificationFormConcerns
   include DatesHelper
 
@@ -59,10 +59,6 @@ class Publishers::Vacancies::JobApplicationsController < Publishers::Vacancies::
     @employments ||= job_application.employments.order(:started_on)
   end
 
-  def job_application
-    @job_application ||= vacancy.job_applications.find(params[:job_application_id] || params[:id])
-  end
-
   def status
     return "shortlisted" if form_params.key?("further_instructions")
 
@@ -71,11 +67,5 @@ class Publishers::Vacancies::JobApplicationsController < Publishers::Vacancies::
 
   def sort
     @sort ||= Publishers::JobApplicationSort.new.update(sort_by: params[:sort_by])
-  end
-
-  def vacancy
-    @vacancy ||= current_organisation.all_vacancies
-                                     .listed
-                                     .find(params[:job_id])
   end
 end

@@ -64,5 +64,9 @@
     .govuk-caption-l {
       color: $govuk-text-colour !important;
     }
+
+    .visually-hidden--visible-print {
+      display: block;
+    }
   }
 }
