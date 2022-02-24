@@ -3,7 +3,7 @@
   .filters-component__heading
     .filters-component__heading__container
       - if options[:publisher_preference]
-        = govuk_link_to t(".add_or_remove_schools"), edit_publishers_publisher_preference_path(options[:publisher_preference]), class: "filters-component__link-button add-remove-schools govuk-link--no-visited-state govuk-!-margin-bottom-4"
+        = govuk_link_to t(".add_or_remove_schools"), edit_publishers_publisher_preference_path(options[:publisher_preference]), class: "filters-component__heading-link-button govuk-link--no-visited-state"
       - elsif options[:heading_text]
         h2.govuk-heading-m
           = options[:heading_text]
@@ -11,12 +11,13 @@
   - if display_remove_buttons?
     .filters-component__remove
       .filters-component__remove__heading
-        .govuk-body class="govuk-!-margin-bottom-0"
+        .govuk-body.filters-component__remove__heading-title class="govuk-!-margin-bottom-0"
           = t("shared.filter_group.current_selected_filters")
-        button.filters-component__link-button.govuk-body.govuk-link id="filters-component-clear-all"
+        button.filters-component__heading-link-button.govuk-body.govuk-link class="govuk-!-margin-bottom-0" id="filters-component-clear-all"
           = t("shared.filter_group.clear_all_filters")
 
-      = remove_buttons
+      .filters-component__remove-groups
+        = remove_buttons
 
   .filters-component__groups
     - groups.each do |group|

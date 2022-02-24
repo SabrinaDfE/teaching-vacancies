@@ -5,7 +5,7 @@ import 'classlist-polyfill';
 export const CHECKBOX_CLASS_SELECTOR = 'govuk-checkboxes__input';
 export const CHECKBOX_GROUP_CLASS_SELECTOR = 'filters-component__groups__group';
 export const REMOVE_FILTER_CLASS_SELECTOR = 'filters-component__remove-tags__tag';
-export const MOBILE_BREAKPOINT = 768;
+export const MOBILE_BREAKPOINT = 640;
 
 window.addEventListener(
   'DOMContentLoaded',
